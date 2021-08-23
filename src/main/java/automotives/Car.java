@@ -33,6 +33,15 @@ public class Car extends Vehicle {
 	}
 
 	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + doors;
+		result = prime * result + wheels;
+		return result;
+	}
+
+	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
@@ -45,7 +54,9 @@ public class Car extends Vehicle {
 			return false;
 		if (wheels != other.wheels)
 			return false;
-		return true;
+		return super.equals(obj);
 	}
+
+
 
 }

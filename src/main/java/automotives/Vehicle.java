@@ -56,6 +56,35 @@ public abstract class Vehicle {
 		return "Vehicle [ID=" + ID + ", type=" + type + ", maker=" + maker + ", colour=" + colour + "]";
 	}
 
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Vehicle other = (Vehicle) obj;
+		if (ID != other.ID)
+			return false;
+		if (colour == null) {
+			if (other.colour != null)
+				return false;
+		} else if (!colour.equals(other.colour))
+			return false;
+		if (maker == null) {
+			if (other.maker != null)
+				return false;
+		} else if (!maker.equals(other.maker))
+			return false;
+		if (type == null) {
+			if (other.type != null)
+				return false;
+		} else if (!type.equals(other.type))
+			return false;
+		return true;
+	}
+
 	public abstract double calculateCost();
 	
 }
