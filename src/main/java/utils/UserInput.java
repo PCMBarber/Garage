@@ -8,6 +8,10 @@ public class UserInput {
 	
 	private static UserInput instance = null;
 	
+	private UserInput() {
+		
+	}
+	
 	public static UserInput getInstance() {
 		if(instance == null) {
 			instance = new UserInput();
