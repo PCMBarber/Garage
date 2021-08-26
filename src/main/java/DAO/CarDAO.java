@@ -11,7 +11,7 @@ import utils.DBUtils;
 
 import automotives.Car;
 
-public class carDAO {
+public class CarDAO {
 	
 	public Car modelFromResultSet(ResultSet resultSet) throws SQLException {
 		int ID = resultSet.getInt("ID");
@@ -19,8 +19,7 @@ public class carDAO {
 		String colour = resultSet.getString("colour");
 		int wheels = resultSet.getInt("wheels");
 		int doors = resultSet.getInt("doors");
-		Car result = new Car(maker, colour, wheels, doors);
-		result.setID(ID);
+		Car result = new Car(ID, maker, colour, wheels, doors);
 		return result;
 	}
 	
@@ -55,20 +54,43 @@ public class carDAO {
 	}
 
 	public Car readByID(int id) {
+		Car found = null;
 		try (Connection connection = DBUtils.getInstance().getConnection();
 				Statement statement = connection.createStatement();
-				ResultSet resultSet = statement.executeQuery
+				ResultSet resultSet = statement.executeQuery("select * from car where ID="+id)) 
+		{
+			if(resultSet.next()) {
+				found = modelFromResultSet(resultSet);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return found;
 	}
 
-	public void update() {
-		try (Connection connection = DBUtils.getInstance().getConnection();
-				Statement statement = connection.createStatement();
-				ResultSet resultSet = statement.executeQuery
+	public void update(Car car) {
+		try (Connection connection =DBUtils.getInstance().getConnection();
+				PreparedStatement statement = connection.prepareStatement("update car set maker=?,colour=?,wheels=?,doors=? where ID=?");)
+		{
+			statement.setString(1, car.getMaker());
+			statement.setString(2, car.getColour());
+			statement.setInt(3, car.getWheels());
+			statement.setInt(4, car.getDoors());
+			statement.setInt(5, car.getID());
+			statement.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
-	public void delete() {
-		try (Connection connection = DBUtils.getInstance().getConnection();
-				Statement statement = connection.createStatement();
-				ResultSet resultSet = statement.executeQuery
+	public void delete(int id) {
+		try (Connection connection =DBUtils.getInstance().getConnection();
+				PreparedStatement statement = connection.prepareStatement("delete from car where ID=?");)
+		{
+			statement.setInt(1, id);
+			statement.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 }

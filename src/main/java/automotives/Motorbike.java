@@ -6,7 +6,7 @@ public class Motorbike extends Vehicle {
 	private boolean sidecar;
 
 	public Motorbike(String maker, String colour, int cubicCapacity, boolean sidecar) {
-		super("Motorbike", maker, colour);
+		super(0, "Motorbike", maker, colour);
 		this.cubicCapacity = cubicCapacity;
 		this.sidecar = sidecar;
 	}

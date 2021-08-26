@@ -8,11 +8,9 @@ public abstract class Vehicle {
 	private String maker;
 	private String colour;
 	
-	private static int count = 0;
-	
-	public Vehicle(String type, String maker, String colour) {
+	public Vehicle(int ID, String type, String maker, String colour) {
 		super();
-		this.ID = ++count;
+		this.ID = ID;
 		this.type = type;
 		this.maker = maker;
 		this.colour = colour;
@@ -53,7 +51,7 @@ public abstract class Vehicle {
 
 	@Override
 	public String toString() {
-		return "Vehicle [ID=" + ID + ", type=" + type + ", maker=" + maker + ", colour=" + colour + "]";
+		return "[ID=" + ID + ", type=" + type + ", maker=" + maker + ", colour=" + colour + "]";
 	}
 
 	@Override

@@ -6,7 +6,13 @@ public class Car extends Vehicle {
 	private int doors;
 
 	public Car(String maker, String colour, int wheels, int doors) {
-		super("Car", maker, colour);
+		super(0, "Car", maker, colour);
+		this.wheels = wheels;
+		this.doors = doors;
+	}
+	
+	public Car(int ID, String maker, String colour, int wheels, int doors) {
+		super(ID, "Car", maker, colour);
 		this.wheels = wheels;
 		this.doors = doors;
 	}
@@ -39,6 +45,11 @@ public class Car extends Vehicle {
 		result = prime * result + doors;
 		result = prime * result + wheels;
 		return result;
+	}
+
+	@Override
+	public String toString() {
+		return "Car "+super.toString()+" [wheels=" + wheels + ", doors=" + doors + "]";
 	}
 
 	@Override

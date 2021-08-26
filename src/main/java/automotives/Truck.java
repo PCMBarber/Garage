@@ -6,7 +6,7 @@ public class Truck extends Vehicle {
 	private double height;
 	
 	public Truck(String maker, String colour, int capacity, double height) {
-		super("Truck", maker, colour);
+		super(0, "Truck", maker, colour);
 		this.capacity = capacity;
 		this.height = height;
 	}
