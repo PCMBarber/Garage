@@ -2,7 +2,6 @@ package menu;
 
 import DAO.CarDAO;
 import automotives.Car;
-import garage.Garage;
 import utils.UserInput;
 
 public class CarMenu {

@@ -10,6 +10,12 @@ public class Motorbike extends Vehicle {
 		this.cubicCapacity = cubicCapacity;
 		this.sidecar = sidecar;
 	}
+	
+	public Motorbike(int ID, String maker, String colour, int cubicCapacity, boolean sidecar) {
+		super(ID, "Motorbike", maker, colour);
+		this.cubicCapacity = cubicCapacity;
+		this.sidecar = sidecar;
+	}
 
 	public int getCubicCapacity() {
 		return cubicCapacity;
@@ -25,6 +31,11 @@ public class Motorbike extends Vehicle {
 
 	public void setSidecar(boolean sidecar) {
 		this.sidecar = sidecar;
+	}
+	
+	@Override
+	public String toString() {
+		return "Motorbike ["+super.toString()+", cubicCapacity=" + cubicCapacity + ", sidecar=" + sidecar + "]";
 	}
 
 	@Override

@@ -10,6 +10,12 @@ public class Truck extends Vehicle {
 		this.capacity = capacity;
 		this.height = height;
 	}
+	
+	public Truck(int ID, String maker, String colour, int capacity, double height) {
+		super(ID, "Truck", maker, colour);
+		this.capacity = capacity;
+		this.height = height;
+	}
 
 	public int getCapacity() {
 		return capacity;
@@ -25,6 +31,11 @@ public class Truck extends Vehicle {
 
 	public void setHeight(double height) {
 		this.height = height;
+	}
+
+	@Override
+	public String toString() {
+		return "Truck ["+super.toString()+", capacity=" + capacity + ", height=" + height + "]";
 	}
 
 	@Override

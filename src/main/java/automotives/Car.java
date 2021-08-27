@@ -49,7 +49,7 @@ public class Car extends Vehicle {
 
 	@Override
 	public String toString() {
-		return "Car "+super.toString()+" [wheels=" + wheels + ", doors=" + doors + "]";
+		return "Car ["+super.toString()+", wheels=" + wheels + ", doors=" + doors + "]";
 	}
 
 	@Override

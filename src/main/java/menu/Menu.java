@@ -6,6 +6,7 @@ public class Menu {
 
 	UserInput scan = UserInput.getInstance();
 	CarMenu carMenu = new CarMenu();
+	MotorbikeMenu motorbikeMenu = new MotorbikeMenu();
 
 	public void start() {
 		while (true) {
@@ -47,7 +48,7 @@ public class Menu {
 			carMenu.update();
 			break;
 		case 2:
-			System.out.println("Not implemented");
+			motorbikeMenu.update();
 			break;
 		default:
 			System.out.println("Invalid");
@@ -65,7 +66,7 @@ public class Menu {
 			carMenu.create();
 			break;
 		case 2:
-			System.out.println("Not implemented");
+			motorbikeMenu.create();
 			break;
 		default:
 			System.out.println("Invalid");
@@ -82,7 +83,7 @@ public class Menu {
 			carMenu.delete();
 			break;
 		case 2:
-			System.out.println("Not implemented");
+			motorbikeMenu.delete();
 			break;
 		default:
 			System.out.println("Invalid");
@@ -100,7 +101,7 @@ public class Menu {
 			carMenu.read();
 			break;
 		case 2:
-			System.out.println("Not implemented");
+			motorbikeMenu.read();
 			break;
 		default:
 			System.out.println("Invalid");

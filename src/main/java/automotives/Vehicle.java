@@ -51,7 +51,7 @@ public abstract class Vehicle {
 
 	@Override
 	public String toString() {
-		return "[ID=" + ID + ", type=" + type + ", maker=" + maker + ", colour=" + colour + "]";
+		return "ID=" + ID + ", type=" + type + ", maker=" + maker + ", colour=" + colour;
 	}
 
 	@Override
